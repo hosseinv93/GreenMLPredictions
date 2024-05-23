@@ -155,15 +155,15 @@ plt.savefig('shap_violin_plot.png', dpi=300)
 plt.show()
 ```
 
-## SHAP Value Analysis
+### SHAP Value Analysis
 
 Understanding the feature importance through SHAP values helps interpret our model's predictive behavior. SHAP values provide a powerful tool for understanding how each feature in our dataset influences the prediction of CO2 emissions. Below are the SHAP summary plot and the violin plot, which illustrate the impact of different features.
 
-### Key Insights from SHAP Analysis:
+#### Key Insights from SHAP Analysis:
 - **Fuel Consumption's Influence**: As expeted, fuel consumption metrics have the most significant impact on the CO2 emissions predictions. This aligns with expectations as fuel consumption directly correlates with the amount of fuel burned, thereby affecting CO2 emissions.
-- **Surprise in Model Year's Influence**: Interestingly, the vehicle's model year has the least influence on CO2 emissions. This suggests that despite advancements in automotive technology over the years, the model year alone does not significantly dictate a vehicle's emissions, which might be influenced more by specific design and engineering choices rather than the year of manufacture alone.
+- **Model Year's Influence**: Interestingly, the vehicle's model year has the least influence on CO2 emissions. This suggests that despite advancements in automotive technology over the years, the model year alone does not significantly dictate a vehicle's emissions, which might be influenced more by specific design and engineering choices rather than the year of manufacture alone.
 
-### SHAP Summary Plot
+#### SHAP Summary Plot
 <img src="images/shap_summary_plot.png" width="600" alt="SHAP Summary Plot">
 
 ### SHAP Violin Plot
