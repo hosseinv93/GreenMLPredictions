@@ -1,12 +1,11 @@
 # CO2 Emission Prediction
-
 This repository contains a Jupyter Notebook that demonstrates the prediction of CO2 emissions based on vehicle characteristics using various machine learning techniques. The project utilizes a RandomForestRegressor and is fine-tuned through GridSearchCV to achieve the best prediction results. Additionally, SHAP values are computed to interpret the model's predictions.
 
 ## Dataset
+The dataset used in this project is the `FuelConsumption.csv`, which contains model-specific fuel consumption ratings and estimated carbon dioxide emissions for new light-duty vehicles for retail sale in Canada. It includes over 1,000 records, each describing various aspects of vehicle performance and environmental impact. You can download the dataset directly from [IBM Cloud](https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64?utm_medium=Exinfluencer&utm_source=Exinfluencer&utm_content=000026UJ&utm_term=10006555&utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDeveloperSkillsNetworkML0101ENSkillsNetwork20718538-2021-01-01).
 
-The dataset used in this project is the `FuelConsumption.csv`, which contains model-specific fuel consumption ratings and estimated carbon dioxide emissions for new light-duty vehicles for retail sale in Canada. You can download the dataset directly from [IBM Cloud](https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64?utm_medium=Exinfluencer&utm_source=Exinfluencer&utm_content=000026UJ&utm_term=10006555&utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDeveloperSkillsNetworkML0101ENSkillsNetwork20718538-2021-01-01).
 
-## Features
+### Features
 
 The dataset includes features like:
 - `MAKE`: Manufacturer of the vehicle
@@ -22,7 +21,6 @@ The dataset includes features like:
 - `CO2 EMISSIONS`: CO2 emissions in grams per km
 
 ## Installation
-
 To run this notebook, you'll need to install the necessary Python libraries. You can install the dependencies using the following command:
 
 ```bash
@@ -30,7 +28,6 @@ pip install numpy pandas matplotlib scikit-learn shap
 ```
 
 ## Downloading the Dataset
-
 To download the dataset directly into the directory where you plan to run the notebook, use the following command:
 
 ```bash
