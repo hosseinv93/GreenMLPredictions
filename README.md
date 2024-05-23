@@ -45,7 +45,7 @@ wget -O FuelConsumption.csv https://cf-courses-data.s3.us.cloud-object-storage.a
 
 
 ## Data Preprocessing
-The dataset is preprocessed to remove irrelevant columns and shuffle the data for randomness. The preprocessed data is then split into training and testing sets.
+The dataset is preprocessed to remove irrelevant columns and shuffle the data for randomness. The preprocessed data is then split into training and testing sets, and features and the target variable are separated.
 
 ```python
 # Import necessary libraries
@@ -79,4 +79,71 @@ data = df_new.sample(frac=1, random_state=42)
 
 # Split the data into training and testing sets
 train_set, test_set = train_test_split(data, test_size=0.15, random_state=42)
+
+# Separate features and target variable for both training and testing sets
+X_trainset = train_set.drop(columns=target_var)
+Y_trainset = train_set[target_var]
+X_testset = test_set.drop(columns=target_var)
+Y_testset = test_set[target_var]
 ```
+
+#Model Building and Evaluation
+A RandomForestRegressor model is built and tuned using GridSearchCV with a detailed set of hyperparameters. The model is then evaluated on both the training and test datasets.
+
+```python
+# Initialize and configure the RandomForestRegressor model
+model = RandomForestRegressor(oob_score=True, random_state=42)
+
+# Define the hyperparameters for grid search
+parameters = {
+    'n_estimators': range(150, 601, 50),
+    'max_features': ["auto"],
+    'min_samples_leaf': [2, 3],
+    'min_samples_split': [2, 3]
+}
+
+# Initialize GridSearchCV with the RandomForest model and the defined parameters
+clf = GridSearchCV(model, parameters, cv=10, verbose=2, n_jobs=-1, scoring='neg_mean_squared_error')
+
+# Fit the model to the training set
+clf.fit(X_trainset, Y_trainset)
+```
+
+# Print the best parameters found by GridSearchCV
+print("Best parameters found: ", clf.best_params_)
+
+# Retrieve the best model from the grid search
+model = clf.best_estimator_
+
+# Evaluate the model using the training and test sets
+print("R^2 Training Score: {:.2f}".format(model.score(X_trainset, Y_trainset)))
+print("R^2 Validation Score: {:.2f}".format(model.score(X_testset, Y_testset)))
+print("OOB Score: {:.2f}".format(model.oob_score_))
+
+# Predict the CO2 emissions on the test set
+y_pred = model.predict(X_testset)
+
+# Plot the true values vs the predicted values
+plt.figure(figsize=(10, 6))
+plt.plot(Y_testset, y_pred, 'ro')
+plt.plot([Y_testset.min(), Y_testset.max()], [Y_testset.min(), Y_testset.max()], 'k--')
+plt.xlabel('True Values')
+plt.ylabel('Predicted Values')
+plt.title('True vs Predicted Values for CO2 Emissions')
+plt.savefig('prediction_accuracy.png', dpi=300)
+plt.show()
+
+# Explain the model's predictions using SHAP values
+explainer = shap.Explainer(model, X_trainset)
+shap_values = explainer.shap_values(X_trainset)
+
+# Plot the SHAP values for the training set
+shap.summary_plot(shap_values, X_trainset, plot_type="bar")
+plt.savefig('shap_summary_plot.png', dpi=300)
+plt.show()
+
+# Additional SHAP plot (violin plot)
+shap.summary_plot(shap_values, X_trainset, plot_type='violin')
+plt.savefig('shap_violin_plot.png', dpi=300)
+plt.show()
+
