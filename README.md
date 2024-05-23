@@ -67,7 +67,7 @@ target_var = 'CO2EMISSIONS'
 # Drop irrelevant columns
 df_new = df.drop(['MAKE','MODEL','VEHICLECLASS','TRANSMISSION','FUELTYPE'], axis=1)
 
-Shuffle the dataset
+#Shuffle the dataset
 data = df_new.sample(frac=1, random_state=42)
 
 # Split the data into training and testing sets
