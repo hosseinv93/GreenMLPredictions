@@ -48,10 +48,35 @@ wget -O FuelConsumption.csv https://cf-courses-data.s3.us.cloud-object-storage.a
 The dataset is preprocessed to remove irrelevant columns and shuffle the data for randomness. The preprocessed data is then split into training and testing sets.
 
 ```python
+# Import necessary libraries
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import shap
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import r2_score
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import MinMaxScaler
 
+# Load the dataset
 df = pd.read_csv("FuelConsumption.csv")
+
+# Display the first few rows of the dataframe to understand its structure
+print(df.head())
+
+# Display all columns to understand what columns are available
+print(df.columns)
+
+# Define the target variable
+target_var = 'CO2EMISSIONS'
+
+# Drop irrelevant columns
 df_new = df.drop(['MAKE','MODEL','VEHICLECLASS','TRANSMISSION','FUELTYPE'], axis=1)
+
+Shuffle the dataset
 data = df_new.sample(frac=1, random_state=42)
+
+# Split the data into training and testing sets
 train_set, test_set = train_test_split(data, test_size=0.15, random_state=42)
 ```
