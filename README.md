@@ -130,6 +130,9 @@ plt.title('True vs Predicted Values for CO2 Emissions')
 plt.savefig('prediction_accuracy.png', dpi=300)
 plt.show()
 ```
+
+![Example Image](images/fig1.png)
+
 ## SHAP Value Interpretation
 SHAP values are computed to interpret the influence of each feature on the model's predictions.
 
