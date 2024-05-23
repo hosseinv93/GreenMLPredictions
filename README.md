@@ -44,11 +44,14 @@ wget -O FuelConsumption.csv https://cf-courses-data.s3.us.cloud-object-storage.a
 ```
 
 
-
 ## Data Preprocessing
+The dataset is preprocessed to remove irrelevant columns and shuffle the data for randomness. The preprocessed data is then split into training and testing sets.
 
 ```python
-# Code for data preprocessing
 import pandas as pd
+
 df = pd.read_csv("FuelConsumption.csv")
-df.drop(['MAKE','MODEL','VEHICLECLASS','TRANSMISSION','FUELTYPE'], axis=1, inplace=True)
+df_new = df.drop(['MAKE','MODEL','VEHICLECLASS','TRANSMISSION','FUELTYPE'], axis=1)
+data = df_new.sample(frac=1, random_state=42)
+train_set, test_set = train_test_split(data, test_size=0.15, random_state=42)
+```
