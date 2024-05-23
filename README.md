@@ -34,7 +34,7 @@ pip install numpy pandas matplotlib scikit-learn shap
 To download the dataset directly into the directory where you plan to run the notebook, use the following command:
 
 ```bash
-wget -O FuelConsumption.csv https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%202/data/FuelConsumptionCo2.csv
+!wget -O FuelConsumption.csv https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%202/data/FuelConsumptionCo2.csv
 ```
 
 ## Data Preprocessing
