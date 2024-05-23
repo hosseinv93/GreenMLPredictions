@@ -33,6 +33,7 @@ To run this notebook, you'll need to install the necessary Python libraries. You
 
 ```bash
 pip install numpy pandas matplotlib scikit-learn shap
+```bash
 
 ### Downloading the Dataset
 
