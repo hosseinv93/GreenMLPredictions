@@ -10,6 +10,19 @@ This project aims to predict CO2 emissions based on various vehicle characterist
 
 The dataset includes several features such as engine size, cylinders, fuel consumption, etc., and was sourced from the Canadian government's public data on fuel consumption ratings.
 
+The dataset, `FuelConsumption.csv`, contains several features that describe vehicle characteristics, including:
+- **Make**
+- **Model**
+- **Vehicle Class**
+- **Engine Size**
+- **Cylinders**
+- **Transmission**
+- **Fuel Type**
+- **Fuel Consumption City**
+- **Fuel Consumption Hwy**
+- **Fuel Consumption Comb**
+- **CO2 Emissions**
+
 ## Data Preprocessing
 
 ```python
