@@ -87,7 +87,7 @@ X_testset = test_set.drop(columns=target_var)
 Y_testset = test_set[target_var]
 ```
 
-#Model Building and Evaluation
+## Model Building and Evaluation
 A RandomForestRegressor model is built and tuned using GridSearchCV with a detailed set of hyperparameters. The model is then evaluated on both the training and test datasets.
 
 ```python
@@ -109,6 +109,10 @@ clf = GridSearchCV(model, parameters, cv=10, verbose=2, n_jobs=-1, scoring='neg_
 clf.fit(X_trainset, Y_trainset)
 ```
 
+## Results and Visualization
+The best model's parameters and its performance metrics are displayed, and predictions are plotted against actual values for visual assessment.
+
+```python
 # Print the best parameters found by GridSearchCV
 print("Best parameters found: ", clf.best_params_)
 
@@ -132,6 +136,7 @@ plt.ylabel('Predicted Values')
 plt.title('True vs Predicted Values for CO2 Emissions')
 plt.savefig('prediction_accuracy.png', dpi=300)
 plt.show()
+```
 
 # Explain the model's predictions using SHAP values
 explainer = shap.Explainer(model, X_trainset)
