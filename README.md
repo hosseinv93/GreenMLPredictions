@@ -150,4 +150,7 @@ plt.savefig('shap_violin_plot.png', dpi=300)
 plt.show()
 ```
 
+## Contributions
+Contributions are welcome! Feel free to fork this repository and submit your improvements via pull requests.
+
 
