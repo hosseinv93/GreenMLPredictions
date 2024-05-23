@@ -124,12 +124,20 @@ y_pred = model.predict(X_testset)
 plt.figure(figsize=(10, 6))
 plt.plot(Y_testset, y_pred, 'ro')
 plt.plot([Y_testset.min(), Y_testset.max()], [Y_testset.min(), Y_testset.max()], 'k--')
-plt.xlabel('True Values')
-plt.ylabel('Predicted Values')
-plt.title('True vs Predicted Values for CO2 Emissions')
-plt.savefig('prediction_accuracy.png', dpi=300)
+plt.xlabel('Actual CO2 Emissions')
+plt.ylabel('Predicted CO2 Emissions')
+plt.title('Scatter Plot of Predicted vs. Actual CO2 Emissions')
+plt.savefig('prediction_accuracy.png', dpi=300)  # Save the plot with a high resolution
 plt.show()
 ```
+
+## Model Results
+
+Here are the results of our model predictions compared to the actual data:
+
+<img src="images/prediction_accuracy.png" width="400" alt="Scatter Plot of Predicted vs. Actual CO2 Emissions">
+
+This scatter plot shows how closely our model's predictions align with the actual emissions data.
 
 ## SHAP Value Interpretation
 SHAP values are computed to interpret the influence of each feature on the model's predictions.
@@ -138,7 +146,6 @@ SHAP values are computed to interpret the influence of each feature on the model
 # Explain the model's predictions using SHAP values
 explainer = shap.Explainer(model, X_trainset)
 shap_values = explainer.shap_values(X_trainset)
-
 
 # Plot the SHAP values for the training set
 shap.summary_plot(shap_values)
