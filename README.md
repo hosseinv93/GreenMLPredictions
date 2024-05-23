@@ -131,7 +131,7 @@ plt.savefig('prediction_accuracy.png', dpi=300)  # Save the plot with a high res
 plt.show()
 ```
 
-## Model Results
+### Model Results
 
 Here are the results of our model predictions compared to the actual data:
 
@@ -157,6 +157,13 @@ shap.summary_plot(shap_values, X_trainset, plot_type='violin')
 plt.savefig('shap_violin_plot.png', dpi=300)
 plt.show()
 ```
+
+### SHAP Summary Plot
+<img src="images/shap_summary_plot.png" width="600" alt="SHAP Summary Plot">
+
+### SHAP Violin Plot
+<img src="images/shap_violin_plot.png" width="600" alt="SHAP Violin Plot">
+
 
 ## Contributions
 Contributions are welcome! Feel free to fork this repository and submit your improvements via pull requests.
