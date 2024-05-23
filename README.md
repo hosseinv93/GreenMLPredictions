@@ -166,7 +166,7 @@ Understanding the feature importance through SHAP values helps interpret our mod
 #### SHAP Summary Plot
 <img src="images/shap_summary_plot.png" width="600" alt="SHAP Summary Plot">
 
-### SHAP Violin Plot
+#### SHAP Violin Plot
 <img src="images/shap_violin_plot.png" width="600" alt="SHAP Violin Plot">
 
 
