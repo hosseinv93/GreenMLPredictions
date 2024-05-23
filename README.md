@@ -137,13 +137,17 @@ plt.title('True vs Predicted Values for CO2 Emissions')
 plt.savefig('prediction_accuracy.png', dpi=300)
 plt.show()
 ```
+## SHAP Value Interpretation
+SHAP values are computed to interpret the influence of each feature on the model's predictions.
 
+```python
 # Explain the model's predictions using SHAP values
 explainer = shap.Explainer(model, X_trainset)
 shap_values = explainer.shap_values(X_trainset)
 
+
 # Plot the SHAP values for the training set
-shap.summary_plot(shap_values, X_trainset, plot_type="bar")
+shap.summary_plot(shap_values)
 plt.savefig('shap_summary_plot.png', dpi=300)
 plt.show()
 
@@ -151,4 +155,6 @@ plt.show()
 shap.summary_plot(shap_values, X_trainset, plot_type='violin')
 plt.savefig('shap_violin_plot.png', dpi=300)
 plt.show()
+```
+
 
