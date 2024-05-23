@@ -1,5 +1,5 @@
 # CO2 Emission Prediction
-This repository contains a Jupyter Notebook that demonstrates the prediction of CO2 emissions based on vehicle characteristics using various machine learning techniques. The project utilizes a RandomForestRegressor and is fine-tuned through GridSearchCV to achieve the best prediction results. Additionally, SHAP values are computed to interpret the model's predictions.
+This repository contains a Jupyter Notebook that demonstrates the prediction of CO2 emissions based on vehicle characteristics using various machine-learning techniques. The project utilizes a RandomForestRegressor and is fine-tuned through GridSearchCV to achieve the best prediction results. Additionally, SHAP (SHapley Additive exPlanations)  values are computed to interpret the model's predictions.
 
 ## Dataset
 The dataset used in this project is the `FuelConsumption.csv`, which contains model-specific fuel consumption ratings and estimated carbon dioxide emissions for new light-duty vehicles for retail sale in Canada. It includes over 1,000 records, each describing various aspects of vehicle performance and environmental impact. You can download the dataset directly from [IBM Cloud](https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64?utm_medium=Exinfluencer&utm_source=Exinfluencer&utm_content=000026UJ&utm_term=10006555&utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDeveloperSkillsNetworkML0101ENSkillsNetwork20718538-2021-01-01).
@@ -154,6 +154,14 @@ shap.summary_plot(shap_values, X_trainset, plot_type='violin')
 plt.savefig('shap_violin_plot.png', dpi=300)
 plt.show()
 ```
+
+## SHAP Value Analysis
+
+Understanding the feature importance through SHAP values helps interpret our model's predictive behavior. SHAP values provide a powerful tool for understanding how each feature in our dataset influences the prediction of CO2 emissions. Below are the SHAP summary plot and the violin plot, which illustrate the impact of different features.
+
+### Key Insights from SHAP Analysis:
+- **Fuel Consumption's Influence**: As expeted, fuel consumption metrics have the most significant impact on the CO2 emissions predictions. This aligns with expectations as fuel consumption directly correlates with the amount of fuel burned, thereby affecting CO2 emissions.
+- **Surprise in Model Year's Influence**: Interestingly, the vehicle's model year has the least influence on CO2 emissions. This suggests that despite advancements in automotive technology over the years, the model year alone does not significantly dictate a vehicle's emissions, which might be influenced more by specific design and engineering choices rather than the year of manufacture alone.
 
 ### SHAP Summary Plot
 <img src="images/shap_summary_plot.png" width="600" alt="SHAP Summary Plot">
